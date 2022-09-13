@@ -1,0 +1,58 @@
+﻿<Window x:Class="Тортуга_3исп11_17_Маханов.Windows.TableChoiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Тортуга_3исп11_17_Маханов.Windows"
+        mc:Ignorable="d"
+        Background="#FFDAF2"
+        Title="TableChoiceWindow" 
+        Height="597" Width="423" 
+        ResizeMode="NoResize"
+        BorderThickness="0">
+    <Grid>
+        <Border x:Name="BB" 
+            HorizontalAlignment="Center"
+            Background="Black"
+            CornerRadius="20"  
+            Height="90"  
+            Width="417" Margin="0,265,-0.2,212.2" RenderTransformOrigin="0.5,0.5">
+        </Border>
+        <Grid Height="90"  
+              Width="auto" 
+              VerticalAlignment="Top"
+              Margin="0, -10">
+            <Grid.OpacityMask>
+                <VisualBrush Visual="{Binding ElementName=BB}"/>
+            </Grid.OpacityMask>
+            <Rectangle Fill="#F390A2" 
+                       VerticalAlignment="Top"
+                       Height="90"  
+                       Width="auto" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+        <Grid Height="80"
+              Width="auto"
+            HorizontalAlignment="Stretch"
+              VerticalAlignment="Bottom"
+              Margin="0, -10">
+            <Grid.OpacityMask>
+                <VisualBrush Visual="{Binding ElementName=BB}"/>
+            </Grid.OpacityMask>
+            <Rectangle Fill="#F390A2" 
+                   Stroke="#F390A2"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Bottom"  
+                   Height="80"  
+                   Width="auto"/>
+        </Grid>
+    </Grid>
+</Window>
