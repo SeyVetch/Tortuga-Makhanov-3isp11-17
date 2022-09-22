@@ -5,54 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Тортуга_3исп11_17_Маханов.Windows"
         mc:Ignorable="d"
-        Background="#FFDAF2"
         Title="TableChoiceWindow" 
-        Height="597" Width="423" 
-        ResizeMode="NoResize"
+        Height="597" Width="423"
         BorderThickness="0">
     <Grid>
-        <Border x:Name="BB" 
-            HorizontalAlignment="Center"
-            Background="Black"
-            CornerRadius="20"  
-            Height="90"  
-            Width="417" Margin="0,265,-0.2,212.2" RenderTransformOrigin="0.5,0.5">
-        </Border>
-        <Grid Height="90"  
-              Width="auto" 
-              VerticalAlignment="Top"
-              Margin="0, -10">
-            <Grid.OpacityMask>
-                <VisualBrush Visual="{Binding ElementName=BB}"/>
-            </Grid.OpacityMask>
-            <Rectangle Fill="#F390A2" 
-                       VerticalAlignment="Top"
-                       Height="90"  
-                       Width="auto" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-        </Grid>
-        <Grid Height="80"
-              Width="auto"
-            HorizontalAlignment="Stretch"
-              VerticalAlignment="Bottom"
-              Margin="0, -10">
-            <Grid.OpacityMask>
-                <VisualBrush Visual="{Binding ElementName=BB}"/>
-            </Grid.OpacityMask>
-            <Rectangle Fill="#F390A2" 
-                   Stroke="#F390A2"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Rectangle x:Name="HeaderBlock"
+                   VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
-                   VerticalAlignment="Bottom"  
-                   Height="80"  
-                   Width="auto"/>
+                   Fill="LightGray"
+                   Grid.Row="0"/>
+        <TextBlock x:Name="FHeaderText"
+                   Text="Тортуга"
+                   FontSize="35"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Grid.Row="0"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnTable1"
+                    Margin="15"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Content="1"
+                    FontSize="30" Click="btnTable1_Click"/>
+            <Button x:Name="btnTable2"
+                    Margin="15"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Content="2"
+                    FontSize="30" Click="btnTable2_Click"/>
+            <Button x:Name="btnTable3"
+                    Margin="15"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Content="3"
+                    FontSize="30" Click="btnTable3_Click"/>
+            <Button x:Name="btnTable4"
+                    Margin="15"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Content="4"
+                    FontSize="30" Click="btnTable4_Click"/>
+            <Button x:Name="btnTable5"
+                    Margin="15"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Content="5"
+                    FontSize="30" Click="btnTable5_Click"/>
+            <Button x:Name="btnTable6"
+                    Margin="15"
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    Content="6"
+                    FontSize="30" Click="btnTable6_Click"/>
+            <Button x:Name="btnTable7"
+                    Margin="15"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Content="7"
+                    FontSize="30" Click="btnTable7_Click"/>
+            <Button x:Name="btnTable8"
+                    Margin="15"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Content="8"
+                    FontSize="30" Click="btnTable8_Click"/>
+            <Button x:Name="btnTable9"
+                    Margin="15"
+                    Grid.Column="2"
+                    Grid.Row="2"
+                    Content="9"
+                    FontSize="30" Click="btnTable9_Click"/>
         </Grid>
+        <Rectangle x:Name="FooterBlock"
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   Fill="LightGray"
+                   Grid.Row="2"/>
+        <TextBlock x:Name="FooterText"
+                   Text="Выберете столик"
+                   FontSize="30"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Grid.Row="2"/>
     </Grid>
 </Window>

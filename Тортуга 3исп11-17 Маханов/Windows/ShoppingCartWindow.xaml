@@ -1,0 +1,32 @@
+﻿<Window x:Class="Тортуга_3исп11_17_Маханов.Windows.ShoppingCartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Тортуга_3исп11_17_Маханов.Windows"
+        mc:Ignorable="d"
+        Title="ShoppingCartWindow"
+        Height="597" Width="423"
+        BorderThickness="0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Rectangle x:Name="HeaderBlock"
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   Fill="LightGray"
+                   Grid.Row="0"/>
+        <TextBlock x:Name="FHeaderText"
+                   Text="Тортуга"
+                   FontSize="35"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Grid.Row="0"/>
+        <Page x:Name="OrderPage"
+              Grid.Row="1"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>

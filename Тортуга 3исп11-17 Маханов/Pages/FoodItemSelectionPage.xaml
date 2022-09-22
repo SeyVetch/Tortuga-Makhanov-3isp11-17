@@ -1,0 +1,31 @@
+﻿<Page x:Class="Тортуга_3исп11_17_Маханов.Pages.FoodItemSelectionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Тортуга_3исп11_17_Маханов.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="503" d:DesignWidth="423"
+      Title="FoodItemSelectionPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="LVCategories"
+                  Grid.Row="0">
+        </ListView>
+        <Rectangle x:Name="FooterBlock"
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   Fill="LightGray"
+                   Grid.Row="1"/>
+        <TextBlock x:Name="FooterText"
+                   Text="Супы" 
+                   FontSize="30"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Grid.Row="1"/>
+    </Grid>
+</Page>

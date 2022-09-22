@@ -55,6 +55,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\CategorySelectionPage.xaml.cs">
+      <DependentUpon>CategorySelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FoodItemPage.xaml.cs">
+      <DependentUpon>FoodItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FoodItemSelectionPage.xaml.cs">
+      <DependentUpon>FoodItemSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\OrderPagesWindow.xaml.cs">
+      <DependentUpon>OrderPagesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ShoppingCartWindow.xaml.cs">
+      <DependentUpon>ShoppingCartWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\TableChoiceWindow.xaml.cs">
       <DependentUpon>TableChoiceWindow.xaml</DependentUpon>
     </Compile>
@@ -62,6 +77,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\CategorySelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FoodItemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FoodItemSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\OrderPagesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ShoppingCartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\TableChoiceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,8 +128,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
