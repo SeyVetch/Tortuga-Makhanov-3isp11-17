@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Тортуга_3исп11_17_Маханов.ClassHelper;
+using Тортуга_3исп11_17_Маханов.EF;
 
 namespace Тортуга_3исп11_17_Маханов.Pages
 {
@@ -23,6 +25,14 @@ namespace Тортуга_3исп11_17_Маханов.Pages
         public FoodItemSelectionPage()
         {
             InitializeComponent();
+            List<FoodItem> foodItems = NewMethod();
+            LVFoods.ItemsSource = foodItems;
+
+        }
+
+        List<FoodItem> NewMethod()
+        {
+            return AppData.Context.FoodItem.ToList();
         }
     }
 }

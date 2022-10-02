@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Тортуга_3исп11_17_Маханов.Pages;
+using Тортуга_3исп11_17_Маханов.ClassHelper;
 
 namespace Тортуга_3исп11_17_Маханов.Windows
 {
@@ -21,7 +23,8 @@ namespace Тортуга_3исп11_17_Маханов.Windows
     {
         public OrderPagesWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            OrderPage.Content = new FoodItemSelectionPage();
         }
 
         private void BtnShopptingCart_Click(object sender, RoutedEventArgs e)

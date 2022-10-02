@@ -13,7 +13,7 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="LVCategories"
+        <ListView x:Name="LVFoods"
                   Grid.Row="0">
         </ListView>
         <Rectangle x:Name="FooterBlock"

@@ -13,8 +13,63 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="LVCategories"
-                  Grid.Row="0">
+        <Border x:Name="Mask" 
+                Width="190" Height="240"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Margin="21"
+                CornerRadius="10"
+                Background="black"/>
+        <ListView x:Name="LVFoods"
+                  Grid.Row="0"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding Path=LocalImagePath}" 
+                                   Width="190" Height="190"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Top"
+                                   Stretch="Fill"/>
+                    <!--<Border Width="190" Height="240"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Background="gray"
+                            Opacity="0.6">
+                        <Border.OpacityMask>
+                            <VisualBrush Visual="{Binding ElementName=Mask}"/>
+                        </Border.OpacityMask>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="190"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Path=Name}" 
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Margin="5"
+                                       FontSize="15"/>
+                            <TextBlock Text="{Binding Path=PriceRub}" 
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Bottom"
+                                       Margin="7"/>
+                            <Image Source="{Binding Path=LocalImagePath}" 
+                                   Width="190" Height="190"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Top"
+                                   Stretch="Fill"/>
+                        </Grid>
+                    </Border>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
         <Rectangle x:Name="FooterBlock"
                    VerticalAlignment="Stretch"
@@ -27,5 +82,10 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Grid.Row="1"/>
+        <Image Source="../images/borscht.jpg" 
+                                   Width="190" Height="190"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Top"
+                                   Stretch="Fill"/>
     </Grid>
 </Page>

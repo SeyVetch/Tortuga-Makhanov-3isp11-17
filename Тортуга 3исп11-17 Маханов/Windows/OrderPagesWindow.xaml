@@ -33,7 +33,7 @@
                     Grid.Column="1"
                     Margin="10" Click="BtnShopptingCart_Click"/>
         </Grid>
-        <Page x:Name="OrderPage"
+        <Frame x:Name="OrderPage"
               Grid.Row="1"
               HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch"/>
