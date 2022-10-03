@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2b4a7299c68d4cbaad539714e8248c23" Name="Diagram1">
+      <Diagram DiagramId="0aff94ca58c5463faccd87c2fb1c0107" Name="Diagram1">
         <EntityTypeShape EntityType="TortugaModel.CategoryFood" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugaModel.FoodItem" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugaModel.FurnitureTable" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugaModel.Order" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TortugaModel.OrderFood" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TortugaModel.OrderFood" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugaModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="TortugaModel.FK_FoodItem_CategoryFood" ManuallyRouted="false" />
         <AssociationConnector Association="TortugaModel.FK_OrderFood_FoodItem" ManuallyRouted="false" />

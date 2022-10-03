@@ -26,5 +26,6 @@ namespace Тортуга_3исп11_17_Маханов.EF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FoodItem> FoodItem { get; set; }
+        public virtual string LocalImagePath { get { return "/Тортуга 3исп11-17 Маханов;component/" + ImagePath.Substring(8); } }
     }
 }

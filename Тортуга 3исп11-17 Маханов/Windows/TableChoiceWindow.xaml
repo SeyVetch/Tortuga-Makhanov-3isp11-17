@@ -25,72 +25,48 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Grid.Row="0"/>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="btnTable1"
-                    Margin="15"
-                    Grid.Column="0"
-                    Grid.Row="0"
-                    Content="1"
-                    FontSize="30" Click="btnTable1_Click"/>
-            <Button x:Name="btnTable2"
-                    Margin="15"
-                    Grid.Column="1"
-                    Grid.Row="0"
-                    Content="2"
-                    FontSize="30" Click="btnTable2_Click"/>
-            <Button x:Name="btnTable3"
-                    Margin="15"
-                    Grid.Column="2"
-                    Grid.Row="0"
-                    Content="3"
-                    FontSize="30" Click="btnTable3_Click"/>
-            <Button x:Name="btnTable4"
-                    Margin="15"
-                    Grid.Column="0"
-                    Grid.Row="1"
-                    Content="4"
-                    FontSize="30" Click="btnTable4_Click"/>
-            <Button x:Name="btnTable5"
-                    Margin="15"
-                    Grid.Column="1"
-                    Grid.Row="1"
-                    Content="5"
-                    FontSize="30" Click="btnTable5_Click"/>
-            <Button x:Name="btnTable6"
-                    Margin="15"
-                    Grid.Column="2"
-                    Grid.Row="1"
-                    Content="6"
-                    FontSize="30" Click="btnTable6_Click"/>
-            <Button x:Name="btnTable7"
-                    Margin="15"
-                    Grid.Column="0"
-                    Grid.Row="2"
-                    Content="7"
-                    FontSize="30" Click="btnTable7_Click"/>
-            <Button x:Name="btnTable8"
-                    Margin="15"
-                    Grid.Column="1"
-                    Grid.Row="2"
-                    Content="8"
-                    FontSize="30" Click="btnTable8_Click"/>
-            <Button x:Name="btnTable9"
-                    Margin="15"
-                    Grid.Column="2"
-                    Grid.Row="2"
-                    Content="9"
-                    FontSize="30" Click="btnTable9_Click"/>
-        </Grid>
+        <Border x:Name="Mask"
+                Height="139" Width="139"
+                Grid.Row="1"
+                CornerRadius="10"
+                Background="black"/>
+        <ListView x:Name="LVTables"
+                  Grid.Row="1"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectionChanged="LVCategories_SelectionChanged">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Width="123" Height="123"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left">
+                        <Border.Background>
+                            <SolidColorBrush>
+                                <SolidColorBrush.Opacity>
+                                    0.6
+                                </SolidColorBrush.Opacity>
+                                <SolidColorBrush.Color>
+                                    Gray
+                                </SolidColorBrush.Color>
+                            </SolidColorBrush>
+                        </Border.Background>
+                        <Border.OpacityMask>
+                            <VisualBrush Visual="{Binding ElementName=Mask}"/>
+                        </Border.OpacityMask>
+                        <TextBlock Text="{Binding Path=Number}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="30"
+                                   FontStretch="Expanded"/>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <Rectangle x:Name="FooterBlock"
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"

@@ -23,7 +23,8 @@
         <ListView x:Name="LVFoods"
                   Grid.Row="0"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                  SelectionChanged="LVFoods_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel>
@@ -32,16 +33,24 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding Path=LocalImagePath}" 
+                    <!--<Image Source="{Binding Path=LocalImagePath}" 
                                    Width="190" Height="190"
                                    HorizontalAlignment="Stretch"
                                    VerticalAlignment="Top"
-                                   Stretch="Fill"/>
-                    <!--<Border Width="190" Height="240"
+                                   Stretch="Fill"/>-->
+                    <Border Width="190" Height="240"
                             VerticalAlignment="Top"
-                            HorizontalAlignment="Left"
-                            Background="gray"
-                            Opacity="0.6">
+                            HorizontalAlignment="Left">
+                        <Border.Background>
+                            <SolidColorBrush>
+                                <SolidColorBrush.Opacity>
+                                    0.6
+                                </SolidColorBrush.Opacity>
+                                <SolidColorBrush.Color>
+                                    Gray
+                                </SolidColorBrush.Color>
+                            </SolidColorBrush>
+                        </Border.Background>
                         <Border.OpacityMask>
                             <VisualBrush Visual="{Binding ElementName=Mask}"/>
                         </Border.OpacityMask>
@@ -55,7 +64,7 @@
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Top"
                                        Margin="5"
-                                       FontSize="15"/>
+                                       FontSize="10"/>
                             <TextBlock Text="{Binding Path=PriceRub}" 
                                        Grid.Row="1"
                                        HorizontalAlignment="Right"
@@ -67,7 +76,7 @@
                                    VerticalAlignment="Top"
                                    Stretch="Fill"/>
                         </Grid>
-                    </Border>-->
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -78,14 +87,19 @@
                    Grid.Row="1"/>
         <TextBlock x:Name="FooterText"
                    Text="Супы" 
-                   FontSize="30"
+                   FontSize="25"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Grid.Row="1"/>
-        <Image Source="../images/borscht.jpg" 
-                                   Width="190" Height="190"
-                                   HorizontalAlignment="Stretch"
-                                   VerticalAlignment="Top"
-                                   Stretch="Fill"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BtnShopptingCart"
+                    Grid.Column="0"
+                    Margin="10, 10, 30, 10" 
+                    Click="BtnShopptingCart_Click" Content="Back"/>
+        </Grid>
     </Grid>
 </Page>

@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Тортуга_3исп11_17_Маханов.ClassHelper;
+using Тортуга_3исп11_17_Маханов.EF;
+using Тортуга_3исп11_17_Маханов.Windows;
 
 namespace Тортуга_3исп11_17_Маханов.Windows
 {
@@ -22,67 +25,15 @@ namespace Тортуга_3исп11_17_Маханов.Windows
         public TableChoiceWindow()
         {
             InitializeComponent();
+            List<FurnitureTable> furnitureTables = AppData.Context.FurnitureTable.ToList();
+            LVTables.ItemsSource = furnitureTables;
         }
 
-        private void btnTable1_Click(object sender, RoutedEventArgs e)
+        private void LVCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Window OrdWin = new OrderPagesWindow();
-            OrdWin.Show();
-            Close();
-        }
-
-        private void btnTable2_Click(object sender, RoutedEventArgs e)
-        {
-            Window OrdWin = new OrderPagesWindow();
-            OrdWin.Show();
-            Close();
-        }
-
-        private void btnTable3_Click(object sender, RoutedEventArgs e)
-        {
-            Window OrdWin = new OrderPagesWindow();
-            OrdWin.Show();
-            Close();
-        }
-
-        private void btnTable4_Click(object sender, RoutedEventArgs e)
-        {
-            Window OrdWin = new OrderPagesWindow();
-            OrdWin.Show();
-            Close();
-        }
-
-        private void btnTable5_Click(object sender, RoutedEventArgs e)
-        {
-            Window OrdWin = new OrderPagesWindow();
-            OrdWin.Show();
-            Close();
-        }
-
-        private void btnTable6_Click(object sender, RoutedEventArgs e)
-        {
-            Window OrdWin = new OrderPagesWindow();
-            OrdWin.Show();
-            Close();
-        }
-
-        private void btnTable7_Click(object sender, RoutedEventArgs e)
-        {
-            Window OrdWin = new OrderPagesWindow();
-            OrdWin.Show();
-            Close();
-        }
-
-        private void btnTable8_Click(object sender, RoutedEventArgs e)
-        {
-            Window OrdWin = new OrderPagesWindow();
-            OrdWin.Show();
-            Close();
-        }
-
-        private void btnTable9_Click(object sender, RoutedEventArgs e)
-        {
-            Window OrdWin = new OrderPagesWindow();
+            FurnitureTable FT = (FurnitureTable)e.AddedItems[0];
+            int IdTable = FT.IdFTable;
+            Window OrdWin = new OrderPagesWindow(IdTable);
             OrdWin.Show();
             Close();
         }

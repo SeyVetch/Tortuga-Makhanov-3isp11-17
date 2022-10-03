@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Тортуга_3исп11_17_Маханов.ClassHelper;
 using Тортуга_3исп11_17_Маханов.EF;
+using Тортуга_3исп11_17_Маханов.Windows;
 
 namespace Тортуга_3исп11_17_Маханов.Pages
 {
@@ -22,17 +23,29 @@ namespace Тортуга_3исп11_17_Маханов.Pages
     /// </summary>
     public partial class FoodItemSelectionPage : Page
     {
-        public FoodItemSelectionPage()
+        OrderPagesWindow win;
+        public FoodItemSelectionPage(int IdCategory, OrderPagesWindow parent)
         {
             InitializeComponent();
-            List<FoodItem> foodItems = NewMethod();
+            List<FoodItem> foodItems = AppData.Context.FoodItem.Where(i => i.IdCategory == IdCategory).ToList();
             LVFoods.ItemsSource = foodItems;
-
+            FooterText.Text = AppData.Context.CategoryFood.FirstOrDefault(i => i.IdCategory == IdCategory).Name;
+            win = parent;
+        }
+        private void LVFoods_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (LVFoods.SelectedItem != null)
+            {
+                FoodItem F = (FoodItem)e.AddedItems[0];
+                int IdFood = F.IdFood;
+                LVFoods.SelectedItem = null;
+                win.OrderPage.Content = new FoodItemPage(IdFood, win);
+            }
         }
 
-        List<FoodItem> NewMethod()
+        private void BtnShopptingCart_Click(object sender, RoutedEventArgs e)
         {
-            return AppData.Context.FoodItem.ToList();
+            win.OrderPage.Content = win.CatPage;
         }
     }
 }

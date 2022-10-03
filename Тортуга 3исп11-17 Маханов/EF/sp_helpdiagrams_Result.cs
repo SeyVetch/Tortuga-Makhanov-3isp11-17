@@ -10,16 +10,13 @@
 namespace Тортуга_3исп11_17_Маханов.EF
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class OrderFood
+    public partial class sp_helpdiagrams_Result
     {
-        public int IdOrder { get; set; }
-        public int IdFood { get; set; }
-        public int Qty { get; set; }
-        public int IdOrderFood { get; set; }
-    
-        public virtual FoodItem FoodItem { get; set; }
-        public virtual Order Order { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

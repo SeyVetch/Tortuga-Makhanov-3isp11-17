@@ -11,9 +11,7 @@ namespace Тортуга_3исп11_17_Маханов.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.Windows.Controls;
-    using System.Windows.Media.Imaging;
-
+    
     public partial class FoodItem
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -32,7 +30,7 @@ namespace Тортуга_3исп11_17_Маханов.EF
         public virtual CategoryFood CategoryFood { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderFood> OrderFood { get; set; }
-        public virtual string LocalImagePath { get { return ".." + ImagePath; } }
+        public virtual string LocalImagePath { get { return "/Тортуга 3исп11-17 Маханов;component/" + ImagePath.Substring(8); } }
         public virtual string PriceRub { get { return Convert.ToString(Price) + " руб."; } }
     }
 }

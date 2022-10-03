@@ -31,11 +31,14 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="BtnShopptingCart"
                     Grid.Column="1"
-                    Margin="10" Click="BtnShopptingCart_Click"/>
+                    Margin="10" Click="BtnShopptingCart_Click">
+                <Image Source="/Тортуга 3исп11-17 Маханов;component/ShoppingCart.png"/>
+            </Button>
         </Grid>
         <Frame x:Name="OrderPage"
-              Grid.Row="1"
-              HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch"/>
+               Grid.Row="1"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

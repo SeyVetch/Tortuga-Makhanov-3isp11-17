@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClassHelper\AppData.cs" />
+    <Compile Include="ClassHelper\OrderItemEntry.cs" />
     <Compile Include="EF\CategoryFood.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -93,6 +94,12 @@
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\OrderFood.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\sp_helpdiagrams_Result.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sysdiagrams.cs">
@@ -184,6 +191,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ShoppingCart.png" />
+    <Resource Include="Praga.jpg" />
+    <Resource Include="PotatoWithKotlt.jpg" />
+    <Resource Include="PeaSoup.jpg" />
+    <Resource Include="OlivyeSalad.jpg" />
+    <Resource Include="Lemonade.jpg" />
+    <Resource Include="GreekSalad.jpg" />
+    <Resource Include="GrechkaWithSausage.jpg" />
+    <Resource Include="Borscht.jpg" />
+    <Resource Include="Cappuccino.jpg" />
+    <Resource Include="BlackTea.jpg" />
+    <Resource Include="BlinyWithMeat.jpg" />
+    <Resource Include="CesarSalad.jpg" />
+    <Resource Include="ChickenSoup.jpg" />
+    <Resource Include="ChocolateBananaBliny.jpg" />
+    <Resource Include="ChocolateIcecream.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="EF\Entities.Context.tt">

@@ -13,9 +13,86 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="LVFoods"
-                  Grid.Row="0">
-        </ListView>
+        <Grid Background="AliceBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.11*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="FoodImage"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch"
+                   Stretch="Fill"/>
+            <TextBlock Grid.Column="1" Grid.RowSpan="2"
+                       x:Name="TxtDesc"
+                       Margin="15, 0, 0, 0"
+                       Text="Здесь находится описание блюда. текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст"
+                       TextWrapping="Wrap"/>
+            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2.5*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.7*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.7*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BtnPlus" 
+                            Grid.Column="1" Grid.Row="1" Content="+"
+                            Background="MintCream" Click="BtnPlus_Click"/>
+                    <TextBlock x:Name="TxtCount" 
+                               Grid.Column="1" Grid.Row="2"
+                               Text="1" TextAlignment="Center"
+                               FontSize="25"/>
+                    <Button x:Name="BtnMinus" 
+                            Grid.Column="1" Grid.Row="3" Content="-"
+                            Background="SeaShell" Click="BtnMinus_Click"/>
+                    <Grid Grid.Row="3" Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.1*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Bottom">
+                            <TextBlock x:Name="TxtPrice" Text="123" FontSize="20"/>
+                            <TextBlock Text=" Руб" FontSize="20"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BtnCancel" 
+                            Grid.Column="0"
+                            Background="Crimson"
+                            Content="Cancel"
+                            Foreground="white"
+                            FontSize="20" Click="BtnCancel_Click"/>
+                    <Button x:Name="BtnAccept" 
+                            Grid.Column="1"
+                            Background="Lime"
+                            Content="Accept"
+                            Foreground="white"
+                            FontSize="20" Click="BtnAccept_Click"/>
+                </Grid>
+            </Grid>
+        </Grid>
         <Rectangle x:Name="FooterBlock"
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"

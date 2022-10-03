@@ -9,6 +9,6 @@ namespace Тортуга_3исп11_17_Маханов.ClassHelper
 {
     class AppData
     {
-        public static Entities Context { get; } = new Entities();
+        public static TortugaEntities Context { get; } = new TortugaEntities();
     }
 }

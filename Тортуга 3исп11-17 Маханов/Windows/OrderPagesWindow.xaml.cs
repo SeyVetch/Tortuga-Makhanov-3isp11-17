@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Тортуга_3исп11_17_Маханов.Pages;
 using Тортуга_3исп11_17_Маханов.ClassHelper;
+using Тортуга_3исп11_17_Маханов.EF;
 
 namespace Тортуга_3исп11_17_Маханов.Windows
 {
@@ -21,17 +22,23 @@ namespace Тортуга_3исп11_17_Маханов.Windows
     /// </summary>
     public partial class OrderPagesWindow : Window
     {
-        public OrderPagesWindow()
+        public Order CurOrd = new Order();
+        public Page CatPage;
+        public OrderPagesWindow(int IdTable)
         {
-            InitializeComponent(); 
-            OrderPage.Content = new FoodItemSelectionPage();
+            InitializeComponent();
+            CatPage = new CategorySelectionPage(this);
+            OrderPage.Content = CatPage;
+            CurOrd.IdFTable = IdTable;
+            AppData.Context.Order.Add(CurOrd);
+            AppData.Context.SaveChanges();
         }
 
         private void BtnShopptingCart_Click(object sender, RoutedEventArgs e)
         {
-            Window ShopCart = new ShoppingCartWindow();
+            Window ShopCart = new ShoppingCartWindow(this);
             ShopCart.Show();
-            Close();
+            Hide();
         }
     }
 }
