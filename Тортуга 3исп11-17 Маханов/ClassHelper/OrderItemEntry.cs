@@ -10,8 +10,8 @@ namespace Тортуга_3исп11_17_Маханов.ClassHelper
 {
     class OrderItemEntry
     {
-        FoodItem foodItem;
-        OrderFood orderFood;
+        public FoodItem foodItem;
+        public OrderFood orderFood;
         public OrderItemEntry(FoodItem FI, OrderFood OF)
         {
             foodItem = FI;
@@ -24,6 +24,8 @@ namespace Тортуга_3исп11_17_Маханов.ClassHelper
         public string LocalImagePath { get { return foodItem.LocalImagePath; } }
         public decimal Price { get { return orderFood.Qty * foodItem.Price; } }
         public string PriceRub { get { return Price.ToString() + " руб"; } }
+        public int IdOrderFood { get { return orderFood.IdOrderFood; } }
+        public int IdFoodItem { get { return foodItem.IdFood; } }
         static FoodItem GetFoodItem(OrderFood OF)
         {
             return AppData.Context.FoodItem.FirstOrDefault(i => OF.IdFood == i.IdFood);

@@ -17,9 +17,10 @@
         <Rectangle x:Name="HeaderBlock"
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
-                   Fill="LightGray"
+                   Fill="LightCoral"
                    Grid.Row="0"/>
         <TextBlock x:Name="FHeaderText"
+                   Foreground="Crimson"
                    Text="Тортуга"
                    FontSize="35"
                    VerticalAlignment="Center"
@@ -30,7 +31,7 @@
                 Grid.Row="1"
                 CornerRadius="10"
                 Background="black"/>
-        <ListView x:Name="LVTables"
+        <ListView x:Name="LVTables" Background="AliceBlue"
                   Grid.Row="1"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectionChanged="LVCategories_SelectionChanged">

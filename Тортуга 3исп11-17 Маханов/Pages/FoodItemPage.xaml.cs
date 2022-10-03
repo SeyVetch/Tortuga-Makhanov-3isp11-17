@@ -26,6 +26,9 @@ namespace Тортуга_3исп11_17_Маханов.Pages
         FoodItem foodItem;
         int count = 1;
         OrderPagesWindow win;
+        OrderFood OF;
+        bool isEdit = false;
+        ShoppingCartWindow SCW;
         public FoodItemPage(int IdFood, OrderPagesWindow parent)
         {
             InitializeComponent();
@@ -36,6 +39,25 @@ namespace Тортуга_3исп11_17_Маханов.Pages
             //TxtDesc.Text = foodItem.Description;
             TxtPrice.Text = (count * foodItem.Price).ToString();
             win = parent;
+            OF = new OrderFood();
+            OF.IdFood = IdFood;
+        }
+        public FoodItemPage(OrderFood orderFood, OrderPagesWindow parent, ShoppingCartWindow scw)
+        {
+            InitializeComponent();
+            foodItem = AppData.Context.FoodItem.FirstOrDefault(i => i.IdFood == orderFood.IdFood);
+            FooterText.Text = foodItem.Name;
+            BitmapImage img = new BitmapImage(new Uri(foodItem.LocalImagePath, UriKind.Relative));
+            FoodImage.Source = img;
+            //TxtDesc.Text = foodItem.Description;
+            TxtPrice.Text = (count * foodItem.Price).ToString();
+            win = parent;
+            OF = orderFood;
+            isEdit = true;
+            SCW = scw;
+            count = orderFood.Qty;
+            TxtCount.Text = count.ToString();
+            TxtPrice.Text = (count * foodItem.Price).ToString();
         }
 
         private void BtnPlus_Click(object sender, RoutedEventArgs e)
@@ -48,9 +70,9 @@ namespace Тортуга_3исп11_17_Маханов.Pages
         private void BtnMinus_Click(object sender, RoutedEventArgs e)
         {
             count--;
-            if (count < 1)
+            if (count < 0)
             {
-                count = 1;
+                count = 0;
             }
             TxtCount.Text = count.ToString();
             TxtPrice.Text = (count * foodItem.Price).ToString();
@@ -58,21 +80,50 @@ namespace Тортуга_3исп11_17_Маханов.Pages
 
         private void BtnAccept_Click(object sender, RoutedEventArgs e)
         {
-            int IdOrd = win.CurOrd.IdOrder;
-            OrderFood orderFood = new OrderFood
+            if (isEdit)
             {
-                IdOrder = IdOrd,
-                IdFood = foodItem.IdFood,
-                Qty = count
-            };
-            AppData.Context.OrderFood.Add(orderFood);
-            AppData.Context.SaveChanges();
-            win.OrderPage.Content = win.CatPage;
+                if (count > 0)
+                {
+                    OF.Qty = count;
+                    AppData.Context.SaveChanges();
+                }
+                else
+                {
+                    AppData.Context.OrderFood.Remove(OF);
+                    AppData.Context.SaveChanges();
+                }
+                SCW.Update();
+                SCW.Show();
+                win.Hide();
+                win.OrderPage.Content = win.CatPage;
+            }
+            else
+            {
+                if (count > 0)
+                {
+                    int IdOrd = win.CurOrd.IdOrder;
+                    OF.IdOrder = IdOrd;
+                    OF.Qty = count;
+                    AppData.Context.OrderFood.Add(OF);
+                    AppData.Context.SaveChanges();
+                }
+                win.OrderPage.Content = win.CatPage;
+            }
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            win.OrderPage.Content = win.CatPage;
+            if (isEdit)
+            {
+                SCW.Update();
+                win.OrderPage.Content = win.CatPage;
+                SCW.Show();
+                win.Hide();
+            }
+            else
+            {
+                win.OrderPage.Content = win.CatPage;
+            }
         }
     }
 }

@@ -11,7 +11,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="6.5*"/>
+            <RowDefinition Height="6.0*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <Border Grid.Row="1" x:Name="Mask" Background="Black" Height="90"
@@ -19,9 +20,10 @@
         <Rectangle x:Name="HeaderBlock"
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
-                   Fill="LightGray"
+                   Fill="LightCoral"
                    Grid.Row="0"/>
         <TextBlock x:Name="FHeaderText"
+                   Foreground="Crimson"
                    Text="Тортуга"
                    FontSize="35"
                    VerticalAlignment="Center"
@@ -30,7 +32,7 @@
         <ListView x:Name="LVOrderItemEntity" 
                   Grid.Row="1" Background="AliceBlue"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectionChanged="LVOrderItemEntity_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel>
@@ -86,27 +88,73 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Border Grid.Row="1" 
-                Height="30" Width="141"
-                VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Border.OpacityMask>
-                <VisualBrush Visual="{Binding ElementName=Mask}"/>
-            </Border.OpacityMask>
-            <Border.Background>
-                <SolidColorBrush>
-                    <SolidColorBrush.Opacity>
-                        0.6
-                    </SolidColorBrush.Opacity>
-                    <SolidColorBrush.Color>
-                        LightSlateGray
-                    </SolidColorBrush.Color>
-                </SolidColorBrush>
-            </Border.Background>
-            <TextBlock x:Name="TxtTotalPrice" Text="asdas" 
-                       Foreground="Black"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        </Border>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Background="Honeydew">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Height="30" Grid.Column="0" x:Name="BtnCard" 
+                    VerticalAlignment="Bottom" HorizontalAlignment="Stretch"
+                    BorderThickness="0" Click="BtnCard_Click">
+                <Button.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=Mask}"/>
+                </Button.OpacityMask>
+                <Button.Background>
+                    <SolidColorBrush>
+                        <SolidColorBrush.Opacity>
+                            0.9
+                        </SolidColorBrush.Opacity>
+                        <SolidColorBrush.Color>
+                            LightSteelBlue
+                        </SolidColorBrush.Color>
+                    </SolidColorBrush>
+                </Button.Background>
+                <TextBlock Text="Оплата картой" x:Name="TxtCard"
+                           Foreground="MintCream"
+                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Button>
+            <Button Height="30" Grid.Column="1" x:Name="BtnCash" 
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                    BorderThickness="0" Width="138" Click="BtnCash_Click">
+                <Button.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=Mask}"/>
+                </Button.OpacityMask>
+                <Button.Background>
+                    <SolidColorBrush>
+                        <SolidColorBrush.Opacity>
+                            0.9
+                        </SolidColorBrush.Opacity>
+                        <SolidColorBrush.Color>
+                            MintCream
+                        </SolidColorBrush.Color>
+                    </SolidColorBrush>
+                </Button.Background>
+                <TextBlock Text="Оплата наличными" x:Name="TxtCash"
+                           Foreground="LightSteelBlue"
+                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Button>
+            <Border Height="30" Grid.Column="2"
+                VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                <Border.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=Mask}"/>
+                </Border.OpacityMask>
+                <Border.Background>
+                    <SolidColorBrush>
+                        <SolidColorBrush.Opacity>
+                            0.9
+                        </SolidColorBrush.Opacity>
+                        <SolidColorBrush.Color>
+                            LavenderBlush
+                        </SolidColorBrush.Color>
+                    </SolidColorBrush>
+                </Border.Background>
+                <TextBlock x:Name="TxtTotalPrice" Text="Цена" 
+                           Foreground="LightSlateGray"
+                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

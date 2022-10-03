@@ -43,6 +43,8 @@ namespace Тортуга_3исп11_17_Маханов.Pages
             }
         }
 
+
+
         private void BtnShopptingCart_Click(object sender, RoutedEventArgs e)
         {
             win.OrderPage.Content = win.CatPage;

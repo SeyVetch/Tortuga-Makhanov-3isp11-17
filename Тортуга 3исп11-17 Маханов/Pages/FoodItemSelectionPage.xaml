@@ -20,7 +20,7 @@
                 Margin="21"
                 CornerRadius="10"
                 Background="black"/>
-        <ListView x:Name="LVFoods"
+        <ListView x:Name="LVFoods" Background="AliceBlue"
                   Grid.Row="0"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ScrollViewer.VerticalScrollBarVisibility="Hidden" 

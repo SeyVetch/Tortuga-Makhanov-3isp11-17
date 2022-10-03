@@ -16,9 +16,10 @@
         <Rectangle x:Name="HeaderBlock"
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
-                   Fill="LightGray"
+                   Fill="LightCoral"
                    Grid.Row="0"/>
         <TextBlock x:Name="FHeaderText"
+                   Foreground="Crimson"
                    Text="Тортуга"
                    FontSize="35"
                    VerticalAlignment="Center"
@@ -29,7 +30,8 @@
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="BtnShopptingCart"
+            <Button x:Name="BtnShopptingCart" Background="Transparent"
+                    BorderBrush="Transparent"
                     Grid.Column="1"
                     Margin="10" Click="BtnShopptingCart_Click">
                 <Image Source="/Тортуга 3исп11-17 Маханов;component/ShoppingCart.png"/>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Тортуга_3исп11_17_Маханов.ClassHelper;
 using Тортуга_3исп11_17_Маханов.EF;
+using Тортуга_3исп11_17_Маханов.Pages;
 
 namespace Тортуга_3исп11_17_Маханов.Windows
 {
@@ -23,6 +24,11 @@ namespace Тортуга_3исп11_17_Маханов.Windows
     {
         OrderPagesWindow win;
         List<OrderItemEntry> Entries;
+        bool card = true;
+        Brush BgOn;
+        Brush BgOff;
+        Brush FgOn;
+        Brush FgOff;
         public ShoppingCartWindow(OrderPagesWindow parent)
         {
             InitializeComponent();
@@ -30,6 +36,10 @@ namespace Тортуга_3исп11_17_Маханов.Windows
             Entries = OrderItemEntry.Transform(AppData.Context.OrderFood.Where(i => i.IdOrder == win.CurOrd.IdOrder).ToList());
             LVOrderItemEntity.ItemsSource = Entries;
             TxtTotalPrice.Text = OrderItemEntry.Sum(Entries).ToString() + " руб";
+            BgOn = BtnCard.Background;
+            BgOff = BtnCash.Background;
+            FgOn = TxtCard.Foreground;
+            FgOff = TxtCash.Foreground;
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -39,10 +49,54 @@ namespace Тортуга_3исп11_17_Маханов.Windows
             Close();
         }
 
+
         private void BtnAccept_Click(object sender, RoutedEventArgs e)
         {
             win.Close();
             Close();
+        }
+
+        private void LVOrderItemEntity_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (LVOrderItemEntity.SelectedItem != null)
+            {
+                OrderFood orderFood = ((OrderItemEntry)e.AddedItems[0]).orderFood;
+                LVOrderItemEntity.SelectedItem = null;
+                win.OrderPage.Content = new FoodItemPage(orderFood, win, this);
+                win.Show();
+                Hide();
+            }
+        }
+
+        public void Update()
+        {
+            Entries = OrderItemEntry.Transform(AppData.Context.OrderFood.Where(i => i.IdOrder == win.CurOrd.IdOrder).ToList());
+            LVOrderItemEntity.ItemsSource = Entries;
+            TxtTotalPrice.Text = OrderItemEntry.Sum(Entries).ToString() + " руб";
+        }
+
+        private void BtnCard_Click(object sender, RoutedEventArgs e)
+        {
+            if (!card)
+            {
+                card = true;
+                BtnCard.Background = BgOn;
+                TxtCard.Foreground = FgOn;
+                BtnCash.Background = BgOff;
+                TxtCash.Foreground = FgOff;
+            }
+        }
+
+        private void BtnCash_Click(object sender, RoutedEventArgs e)
+        {
+            if (card)
+            {
+                card = false;
+                BtnCash.Background = BgOn;
+                TxtCash.Foreground = FgOn;
+                BtnCard.Background = BgOff;
+                TxtCard.Foreground = FgOff;
+            }
         }
     }
 }

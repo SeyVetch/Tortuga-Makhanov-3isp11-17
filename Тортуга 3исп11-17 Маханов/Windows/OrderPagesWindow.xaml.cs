@@ -40,5 +40,7 @@ namespace Тортуга_3исп11_17_Маханов.Windows
             ShopCart.Show();
             Hide();
         }
+
+
     }
 }
