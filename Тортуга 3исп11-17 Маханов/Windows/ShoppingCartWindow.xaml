@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Тортуга_3исп11_17_Маханов.Windows"
         mc:Ignorable="d"
         Title="ShoppingCartWindow"
-        Height="597" Width="423"
+        Height="1000" Width="709"
         BorderThickness="0">
     <Grid>
         <Grid.RowDefinitions>
@@ -25,7 +25,7 @@
         <TextBlock x:Name="FHeaderText"
                    Foreground="Crimson"
                    Text="Тортуга"
-                   FontSize="35"
+                   FontSize="70"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Grid.Row="0"/>
@@ -94,7 +94,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Height="30" Grid.Column="0" x:Name="BtnCard" 
+            <Button Height="51" Grid.Column="0" x:Name="BtnCard" 
                     VerticalAlignment="Bottom" HorizontalAlignment="Stretch"
                     BorderThickness="0" Click="BtnCard_Click">
                 <Button.OpacityMask>
@@ -112,11 +112,12 @@
                 </Button.Background>
                 <TextBlock Text="Оплата картой" x:Name="TxtCard"
                            Foreground="MintCream"
-                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           FontSize="17"/>
             </Button>
-            <Button Height="30" Grid.Column="1" x:Name="BtnCash" 
-                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                    BorderThickness="0" Width="138" Click="BtnCash_Click">
+            <Button Height="51" Grid.Column="1" x:Name="BtnCash" 
+                    VerticalAlignment="Bottom" HorizontalAlignment="Stretch"
+                    BorderThickness="0" Click="BtnCash_Click">
                 <Button.OpacityMask>
                     <VisualBrush Visual="{Binding ElementName=Mask}"/>
                 </Button.OpacityMask>
@@ -132,9 +133,10 @@
                 </Button.Background>
                 <TextBlock Text="Оплата наличными" x:Name="TxtCash"
                            Foreground="LightSteelBlue"
-                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           FontSize="17"/>
             </Button>
-            <Border Height="30" Grid.Column="2"
+            <Border Height="51" Grid.Column="2"
                 VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
                 <Border.OpacityMask>
                     <VisualBrush Visual="{Binding ElementName=Mask}"/>
@@ -151,7 +153,8 @@
                 </Border.Background>
                 <TextBlock x:Name="TxtTotalPrice" Text="Цена" 
                            Foreground="LightSlateGray"
-                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           FontSize="17"/>
             </Border>
         </Grid>
         <Grid Grid.Row="3">
@@ -164,13 +167,13 @@
                             Background="Crimson"
                             Content="Cancel"
                             Foreground="white"
-                            FontSize="20" Click="BtnCancel_Click"/>
+                            FontSize="40" Click="BtnCancel_Click"/>
             <Button x:Name="BtnAccept" 
                             Grid.Column="1"
                             Background="Lime"
                             Content="Accept"
                             Foreground="white"
-                            FontSize="20" Click="BtnAccept_Click"/>
+                            FontSize="40" Click="BtnAccept_Click"/>
         </Grid>
     </Grid>
 </Window>

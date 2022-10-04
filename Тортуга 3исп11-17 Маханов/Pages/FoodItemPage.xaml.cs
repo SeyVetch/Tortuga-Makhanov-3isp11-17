@@ -36,7 +36,7 @@ namespace Тортуга_3исп11_17_Маханов.Pages
             FooterText.Text = foodItem.Name;
             BitmapImage img = new BitmapImage(new Uri(foodItem.LocalImagePath, UriKind.Relative));
             FoodImage.Source = img;
-            //TxtDesc.Text = foodItem.Description;
+            TxtDesc.Text = foodItem.Description;
             TxtPrice.Text = (count * foodItem.Price).ToString();
             win = parent;
             OF = new OrderFood();
@@ -49,7 +49,7 @@ namespace Тортуга_3исп11_17_Маханов.Pages
             FooterText.Text = foodItem.Name;
             BitmapImage img = new BitmapImage(new Uri(foodItem.LocalImagePath, UriKind.Relative));
             FoodImage.Source = img;
-            //TxtDesc.Text = foodItem.Description;
+            TxtDesc.Text = foodItem.Description;
             TxtPrice.Text = (count * foodItem.Price).ToString();
             win = parent;
             OF = orderFood;
@@ -85,12 +85,10 @@ namespace Тортуга_3исп11_17_Маханов.Pages
                 if (count > 0)
                 {
                     OF.Qty = count;
-                    AppData.Context.SaveChanges();
                 }
                 else
                 {
-                    AppData.Context.OrderFood.Remove(OF);
-                    AppData.Context.SaveChanges();
+                    ShoppingCart.Cart.Remove(OF);
                 }
                 SCW.Update();
                 SCW.Show();
@@ -103,9 +101,16 @@ namespace Тортуга_3исп11_17_Маханов.Pages
                 {
                     int IdOrd = win.CurOrd.IdOrder;
                     OF.IdOrder = IdOrd;
-                    OF.Qty = count;
-                    AppData.Context.OrderFood.Add(OF);
-                    AppData.Context.SaveChanges();
+                    OrderFood of = ShoppingCart.Cart.FirstOrDefault(i => i.IdFood == OF.IdFood && i.IdOrder == OF.IdOrder);
+                    if (of != null)
+                    {
+                        of.Qty += count;
+                    }
+                    else
+                    {
+                        OF.Qty = count;
+                        ShoppingCart.Cart.Add(OF);
+                    }
                 }
                 win.OrderPage.Content = win.CatPage;
             }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Тортуга_3исп11_17_Маханов.Windows"
         mc:Ignorable="d"
         Title="TableChoiceWindow" 
-        Height="597" Width="423"
+        Height="1000" Width="709"
         BorderThickness="0">
     <Grid>
         <Grid.RowDefinitions>
@@ -22,7 +22,7 @@
         <TextBlock x:Name="FHeaderText"
                    Foreground="Crimson"
                    Text="Тортуга"
-                   FontSize="35"
+                   FontSize="70"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Grid.Row="0"/>
@@ -34,7 +34,8 @@
         <ListView x:Name="LVTables" Background="AliceBlue"
                   Grid.Row="1"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectionChanged="LVCategories_SelectionChanged">
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                  SelectionChanged="LVCategories_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel>
@@ -59,11 +60,82 @@
                         <Border.OpacityMask>
                             <VisualBrush Visual="{Binding ElementName=Mask}"/>
                         </Border.OpacityMask>
-                        <TextBlock Text="{Binding Path=Number}"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   FontSize="30"
-                                   FontStretch="Expanded"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.7*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Path=Number}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="50"
+                                       FontStretch="Expanded"
+                                       Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                            <StackPanel Grid.Column="1" Grid.Row="1" 
+                                        Orientation="Horizontal" Margin="0, 0, 7, 0"
+                                        HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding Path=Seats}"
+                                           HorizontalAlignment="Right"
+                                           VerticalAlignment="Center"
+                                           FontSize="20"
+                                           FontStretch="Expanded"/>
+                                <Image Source="/images/Chair.png" Width="25" Height="25"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="LVStaff" Background="AliceBlue"
+                  Grid.Row="1" Visibility="Hidden"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                  SelectionChanged="LVStaff_SelectionChanged">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Width="300" Height="90"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left">
+                        <Border.Background>
+                            <SolidColorBrush>
+                                <SolidColorBrush.Opacity>
+                                    0.6
+                                </SolidColorBrush.Opacity>
+                                <SolidColorBrush.Color>
+                                    Gray
+                                </SolidColorBrush.Color>
+                            </SolidColorBrush>
+                        </Border.Background>
+                        <Border.OpacityMask>
+                            <VisualBrush Visual="{Binding ElementName=Mask}"/>
+                        </Border.OpacityMask>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=LasttName}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Margin="0, 0, 5, 0"/>
+                            <TextBlock Text="{Binding Path=FirstName}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Margin="0, 0, 5, 0"/>
+                            <TextBlock Text="{Binding Path=Patronymic}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Margin="0, 0, 5, 0"/>
+                        </StackPanel>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -74,8 +146,8 @@
                    Fill="LightGray"
                    Grid.Row="2"/>
         <TextBlock x:Name="FooterText"
-                   Text="Выберете столик"
-                   FontSize="30"
+                   Text="Выберите столик"
+                   FontSize="55"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Grid.Row="2"/>

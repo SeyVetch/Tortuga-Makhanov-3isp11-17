@@ -24,12 +24,13 @@ namespace Тортуга_3исп11_17_Маханов.Windows
     {
         public Order CurOrd = new Order();
         public Page CatPage;
-        public OrderPagesWindow(int IdTable)
+        public OrderPagesWindow(int IdTable, int IdStaff)
         {
             InitializeComponent();
             CatPage = new CategorySelectionPage(this);
             OrderPage.Content = CatPage;
             CurOrd.IdFTable = IdTable;
+            CurOrd.IdStaff = IdStaff;
             AppData.Context.Order.Add(CurOrd);
             AppData.Context.SaveChanges();
         }

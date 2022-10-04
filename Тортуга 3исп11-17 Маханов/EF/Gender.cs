@@ -12,22 +12,18 @@ namespace Тортуга_3исп11_17_Маханов.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class Gender
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
+        public Gender()
         {
-            this.OrderFood = new HashSet<OrderFood>();
+            this.Staff = new HashSet<Staff>();
         }
     
-        public int IdOrder { get; set; }
-        public int IdFTable { get; set; }
-        public System.DateTime OrderDate { get; set; }
-        public int IdStaff { get; set; }
+        public int IdGender { get; set; }
+        public string Name { get; set; }
     
-        public virtual FurnitureTable FurnitureTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderFood> OrderFood { get; set; }
-        public virtual Staff Staff { get; set; }
+        public virtual ICollection<Staff> Staff { get; set; }
     }
 }

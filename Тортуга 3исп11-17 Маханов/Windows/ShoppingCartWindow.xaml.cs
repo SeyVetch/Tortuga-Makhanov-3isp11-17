@@ -33,7 +33,7 @@ namespace Тортуга_3исп11_17_Маханов.Windows
         {
             InitializeComponent();
             win = parent;
-            Entries = OrderItemEntry.Transform(AppData.Context.OrderFood.Where(i => i.IdOrder == win.CurOrd.IdOrder).ToList());
+            Entries = OrderItemEntry.Transform(ShoppingCart.Cart.ToList());
             LVOrderItemEntity.ItemsSource = Entries;
             TxtTotalPrice.Text = OrderItemEntry.Sum(Entries).ToString() + " руб";
             BgOn = BtnCard.Background;
@@ -44,7 +44,7 @@ namespace Тортуга_3исп11_17_Маханов.Windows
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            List<OrderFood> OF = AppData.Context.OrderFood.ToList();
+            List<OrderFood> OF = ShoppingCart.Cart.ToList();
             win.Show();
             Close();
         }
@@ -52,6 +52,11 @@ namespace Тортуга_3исп11_17_Маханов.Windows
 
         private void BtnAccept_Click(object sender, RoutedEventArgs e)
         {
+            foreach (OrderFood orderfood in ShoppingCart.Cart.ToList())
+            {
+                AppData.Context.OrderFood.Add(orderfood);
+            }
+            AppData.Context.SaveChanges();
             win.Close();
             Close();
         }
@@ -70,7 +75,7 @@ namespace Тортуга_3исп11_17_Маханов.Windows
 
         public void Update()
         {
-            Entries = OrderItemEntry.Transform(AppData.Context.OrderFood.Where(i => i.IdOrder == win.CurOrd.IdOrder).ToList());
+            Entries = OrderItemEntry.Transform(ShoppingCart.Cart.ToList());
             LVOrderItemEntity.ItemsSource = Entries;
             TxtTotalPrice.Text = OrderItemEntry.Sum(Entries).ToString() + " руб";
         }

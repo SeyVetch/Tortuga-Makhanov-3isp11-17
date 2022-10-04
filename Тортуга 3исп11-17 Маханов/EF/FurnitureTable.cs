@@ -22,6 +22,7 @@ namespace Тортуга_3исп11_17_Маханов.EF
     
         public int IdFTable { get; set; }
         public int Number { get; set; }
+        public int Seats { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }

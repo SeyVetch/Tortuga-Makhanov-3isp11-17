@@ -66,6 +66,7 @@
     </ApplicationDefinition>
     <Compile Include="ClassHelper\AppData.cs" />
     <Compile Include="ClassHelper\OrderItemEntry.cs" />
+    <Compile Include="ClassHelper\ShoppingCart.cs" />
     <Compile Include="EF\CategoryFood.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -90,6 +91,9 @@
     <Compile Include="EF\FurnitureTable.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\Gender.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Order.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -100,6 +104,9 @@
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Staff.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sysdiagrams.cs">
@@ -189,27 +196,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ShoppingCart.png" />
-    <Resource Include="Praga.jpg" />
-    <Resource Include="PotatoWithKotlt.jpg" />
-    <Resource Include="PeaSoup.jpg" />
-    <Resource Include="OlivyeSalad.jpg" />
-    <Resource Include="Lemonade.jpg" />
-    <Resource Include="GreekSalad.jpg" />
-    <Resource Include="GrechkaWithSausage.jpg" />
-    <Resource Include="Borscht.jpg" />
-    <Resource Include="Cappuccino.jpg" />
-    <Resource Include="BlackTea.jpg" />
-    <Resource Include="BlinyWithMeat.jpg" />
-    <Resource Include="CesarSalad.jpg" />
-    <Resource Include="ChickenSoup.jpg" />
-    <Resource Include="ChocolateBananaBliny.jpg" />
-    <Resource Include="ChocolateIcecream.jpg" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="EF\Entities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -221,6 +208,23 @@
       <DependentUpon>Entities.edmx</DependentUpon>
       <LastGenOutput>Entities.cs</LastGenOutput>
     </Content>
+    <Resource Include="images\Chair.png" />
+    <Resource Include="images\BlackTea.jpg" />
+    <Resource Include="images\BlinyWithMeat.jpg" />
+    <Resource Include="images\Borscht.jpg" />
+    <Resource Include="images\Cappuccino.jpg" />
+    <Resource Include="images\CesarSalad.jpg" />
+    <Resource Include="images\ChickenSoup.jpg" />
+    <Resource Include="images\ChocolateBananaBliny.jpg" />
+    <Resource Include="images\ChocolateIcecream.jpg" />
+    <Resource Include="images\GrechkaWithSausage.jpg" />
+    <Resource Include="images\GreekSalad.jpg" />
+    <Resource Include="images\Lemonade.jpg" />
+    <Resource Include="images\OlivyeSalad.jpg" />
+    <Resource Include="images\PeaSoup.jpg" />
+    <Resource Include="images\PotatoWithKotlt.jpg" />
+    <Resource Include="images\Praga.jpg" />
+    <Resource Include="images\ShoppingCart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

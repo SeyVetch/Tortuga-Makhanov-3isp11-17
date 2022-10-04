@@ -22,18 +22,31 @@ namespace Тортуга_3исп11_17_Маханов.Windows
     /// </summary>
     public partial class TableChoiceWindow : Window
     {
+        int IdTable;
+        int IdStaff;
         public TableChoiceWindow()
         {
             InitializeComponent();
             List<FurnitureTable> furnitureTables = AppData.Context.FurnitureTable.ToList();
             LVTables.ItemsSource = furnitureTables;
+            List<Staff> staff = AppData.Context.Staff.ToList();
+            LVStaff.ItemsSource = staff;
         }
 
         private void LVCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             FurnitureTable FT = (FurnitureTable)e.AddedItems[0];
-            int IdTable = FT.IdFTable;
-            Window OrdWin = new OrderPagesWindow(IdTable);
+            IdTable = FT.IdFTable;
+            LVTables.Visibility = Visibility.Hidden;
+            LVStaff.Visibility = Visibility.Visible;
+            FooterText.Text = "Выберите официанта";
+        }
+
+        private void LVStaff_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Staff staff = (Staff)e.AddedItems[0];
+            IdStaff = staff.IdStaff;
+            Window OrdWin = new OrderPagesWindow(IdTable, IdStaff);
             OrdWin.Show();
             Close();
         }

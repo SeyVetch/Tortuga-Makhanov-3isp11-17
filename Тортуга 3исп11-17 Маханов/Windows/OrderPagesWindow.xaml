@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Тортуга_3исп11_17_Маханов.Windows"
         mc:Ignorable="d"
         Title="OrderPagesWindow" 
-        Height="597" Width="423"
+        Height="1000" Width="709"
         BorderThickness="0">
     <Grid>
         <Grid.RowDefinitions>
@@ -21,7 +21,7 @@
         <TextBlock x:Name="FHeaderText"
                    Foreground="Crimson"
                    Text="Тортуга"
-                   FontSize="35"
+                   FontSize="70"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Grid.Row="0"/>
@@ -34,7 +34,7 @@
                     BorderBrush="Transparent"
                     Grid.Column="1"
                     Margin="10" Click="BtnShopptingCart_Click">
-                <Image Source="/Тортуга 3исп11-17 Маханов;component/ShoppingCart.png"/>
+                <Image Source="../images/ShoppingCart.png"/>
             </Button>
         </Grid>
         <Frame x:Name="OrderPage"
